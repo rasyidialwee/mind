@@ -13,7 +13,9 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        return view('subjects/index');
+        return view('subjects/index', [
+            'subjects' => Subject::paginate(10),
+        ]);
     }
 
     /**
@@ -21,7 +23,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('subjects/form');
     }
 
     /**
@@ -29,7 +31,16 @@ class SubjectController extends Controller
      */
     public function store(StoreSubjectRequest $request)
     {
-        //
+        // dd($request->all());
+        $subject = new Subject();
+        $subject->name = $request->name;
+        $subject->description = $request->description;
+        $subject->score = $request->score;
+        $subject->status = $request->status;
+        $subject->save();
+
+        // return back();
+        return to_route('subjects.index');
     }
 
     /**
@@ -45,7 +56,9 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+        return view('subjects/form',[
+            'subject' => $subject,
+        ]);
     }
 
     /**

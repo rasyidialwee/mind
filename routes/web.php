@@ -21,5 +21,11 @@ Route::get('/', function () {
     // return view('belajar');
 });
 
-Route::get('/subjects',[SubjectController::class, 'index']);
+Route::get('/subjects',[SubjectController::class, 'index'])->name('subjects.index');
+
+Route::get('/subjects/create',[SubjectController::class, 'create'])->name('subjects.create');
+
+Route::post('/subjects', [SubjectController::class, 'store'])->name('subjects.store');
+
+Route::get('/subjects/{subject}', [SubjectController::class, 'edit'])->name('subjects.edit');
 // Route::get('/', [DashboardController::class, 'index']);
