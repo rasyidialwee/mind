@@ -21,15 +21,17 @@ Route::get('/', function () {
     // return view('belajar');
 });
 
-Route::get('/subjects',[SubjectController::class, 'index'])->name('subjects.index');
+// Route::get('/subjects',[SubjectController::class, 'index'])->name('subjects.index');
 
-Route::get('/subjects/create',[SubjectController::class, 'create'])->name('subjects.create');
+// Route::get('/subjects/create',[SubjectController::class, 'create'])->name('subjects.create');
 
-Route::post('/subjects', [SubjectController::class, 'store'])->name('subjects.store');
+// Route::post('/subjects', [SubjectController::class, 'store'])->name('subjects.store');
 
-Route::get('/subjects/{subject}', [SubjectController::class, 'edit'])->name('subjects.edit');
+// Route::get('/subjects/{subject}', [SubjectController::class, 'edit'])->name('subjects.edit');
 
-Route::post('/subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
+// Route::post('/subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
 
-Route::delete('/subjects/{subject}', [SubjectController::class, 'destroy'])->name('subjects.delete');
-// Route::get('/', [DashboardController::class, 'index']);
+// Route::delete('/subjects/{subject}', [SubjectController::class, 'destroy'])->name('subjects.delete');
+
+Route::resource('subjects', SubjectController::class);
+

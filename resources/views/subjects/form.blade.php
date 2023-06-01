@@ -19,6 +19,9 @@
     method="post"
 >
     @csrf
+    @if (isset($subject))
+        @method('PUT')
+    @endif
     <input type="text" name="name" placeholder="name" value="{{ isset($subject) ? $subject->name : '' }}">
 
     <textarea name="description" placeholder="description">

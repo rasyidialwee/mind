@@ -11,7 +11,7 @@
 <p>{{$subject->description}}</p>
 <small>{{$subject->status}}</small>
 
-<form action="{{route('subjects.delete', $subject)}}" method="post">
+<form action="{{route('subjects.destroy', $subject)}}" method="post">
     @csrf
     @method('DELETE')
     <button type="submit">delete</button>
