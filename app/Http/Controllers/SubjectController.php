@@ -80,6 +80,8 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        // dd($subject);
+        $subject->delete();
+        return to_route('subjects.index');
     }
 }

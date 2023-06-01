@@ -10,6 +10,12 @@
 <h1>{{$subject->name}} ({{$subject->score}})</h1>
 <p>{{$subject->description}}</p>
 <small>{{$subject->status}}</small>
+
+<form action="{{route('subjects.delete', $subject)}}" method="post">
+    @csrf
+    @method('DELETE')
+    <button type="submit">delete</button>
+</form>
 <p>==========================</p>
 
 @endforeach

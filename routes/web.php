@@ -30,4 +30,6 @@ Route::post('/subjects', [SubjectController::class, 'store'])->name('subjects.st
 Route::get('/subjects/{subject}', [SubjectController::class, 'edit'])->name('subjects.edit');
 
 Route::post('/subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
+
+Route::delete('/subjects/{subject}', [SubjectController::class, 'destroy'])->name('subjects.delete');
 // Route::get('/', [DashboardController::class, 'index']);
