@@ -8,7 +8,16 @@
     </div>
 @endif
 
-<form action="{{route('subjects.store')}}" method="post">
+<form
+    action="
+        @if (isset($subject))
+            {{route('subjects.update',$subject) }}
+        @else
+            {{ route('subjects.store') }}
+        @endif
+        "
+    method="post"
+>
     @csrf
     <input type="text" name="name" placeholder="name" value="{{ isset($subject) ? $subject->name : '' }}">
 

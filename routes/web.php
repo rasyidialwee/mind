@@ -28,4 +28,6 @@ Route::get('/subjects/create',[SubjectController::class, 'create'])->name('subje
 Route::post('/subjects', [SubjectController::class, 'store'])->name('subjects.store');
 
 Route::get('/subjects/{subject}', [SubjectController::class, 'edit'])->name('subjects.edit');
+
+Route::post('/subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
 // Route::get('/', [DashboardController::class, 'index']);

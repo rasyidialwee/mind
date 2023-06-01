@@ -14,7 +14,7 @@ class SubjectController extends Controller
     public function index()
     {
         return view('subjects/index', [
-            'subjects' => Subject::paginate(10),
+            'subjects' => Subject::orderBy('updated_at', 'desc')->paginate(10)->withQueryString(),
         ]);
     }
 
@@ -39,7 +39,6 @@ class SubjectController extends Controller
         $subject->status = $request->status;
         $subject->save();
 
-        // return back();
         return to_route('subjects.index');
     }
 
@@ -66,7 +65,14 @@ class SubjectController extends Controller
      */
     public function update(UpdateSubjectRequest $request, Subject $subject)
     {
-        //
+        // dd($request->all(), $subject);
+        $subject->name = $request->name;
+        $subject->description = $request->description;
+        $subject->score = $request->score;
+        $subject->status = $request->status;
+        $subject->save();
+
+        return to_route('subjects.index');
     }
 
     /**
